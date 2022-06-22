@@ -8,10 +8,10 @@ export const Routes = () => {
     return (
         <Switch>
             <Route exact path="/">
-                <Home/>
-            </Route>
-            <Route path="/register">
                 <Register/>
+            </Route>
+            <Route path="/home">
+                <Home/>
             </Route>
             <Route path="/login">
                 <Login />
