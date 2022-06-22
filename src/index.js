@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import RegisterProvider from './Provider/RegisterProvider';
+import LoginProvider from "./Provider/LoginProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,9 @@ root.render(
     <BrowserRouter>
       <ChakraProvider>
         <RegisterProvider>
-          <App />
+          <LoginProvider>
+            <App />
+          </LoginProvider>
         </RegisterProvider>
       </ChakraProvider>
     </BrowserRouter>
