@@ -22,8 +22,14 @@ import * as yup from "yup"
 import { useForm } from 'react-hook-form';
 import {yupResolver} from "@hookform/resolvers/yup"
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { LoginContext } from '../../Provider/LoginProvider';
+
+
 
 export const Login = () => {
+    const {sendLogin} = useContext(LoginContext);
+
     const [showPassword, setShowPassword] = useState(false);
     const schema = yup.object().shape({
         email: yup.string().required("Email Obrigatório").email("Email Invalido"),
@@ -36,7 +42,7 @@ export const Login = () => {
     } = useForm({resolver:yupResolver(schema)})
 
     const onSubmitRegister = (data) => {
-        console.log(data)
+        sendLogin(data)
     }
     return (
         <Flex flexDirection={['column', 'column', 'row']} bg="#142850">
