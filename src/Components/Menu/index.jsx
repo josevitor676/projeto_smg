@@ -16,7 +16,6 @@ import {
     Text,
 } from '@chakra-ui/react'
 import React from 'react'
-import {GrAdd} from "react-icons/gr"
 import * as yup from "yup"
 import { useForm } from 'react-hook-form';
 import {yupResolver} from "@hookform/resolvers/yup"
@@ -51,8 +50,8 @@ export const Menu = () => {
 
     return (
         <>
-        <Button ref={btnRef} colorScheme='teal' onClick={onOpen} p="10px" borderRadius="50%">
-            <GrAdd style={{color:"white"}}/>
+        <Button ref={btnRef} onClick={onOpen} p="6px" h="25px" fontSize="10px" color="#ffff" bg="#4299e1de" _hover={{bg: "#4299e1ca"}} fontFamily="Kanit, sans-serif">
+            Adicionar novo Produto
         </Button>
         <Drawer
             isOpen={isOpen}
@@ -63,7 +62,7 @@ export const Menu = () => {
             <DrawerOverlay />
             <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>Adicionar Produto</DrawerHeader>
+            <DrawerHeader fontFamily="Kanit, sans-serif">Adicionar Produto</DrawerHeader>
 
             <DrawerBody
             sx={{
@@ -83,9 +82,9 @@ export const Menu = () => {
                 w="100%"
                 onSubmit={handleSubmit(onSubmitAdd)}
                 >
-                    <Stack>
+                    <Stack fontFamily="Kanit, sans-serif">
                         <FormControl id='name'>
-                            <FormLabel>Nome Produto</FormLabel>
+                            <FormLabel >Nome Produto</FormLabel>
                             <InputGroup>
                                 <Input type="text" placeholder='Nome do produto' {...register("name")}/>
                             </InputGroup>
