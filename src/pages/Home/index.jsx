@@ -1,7 +1,7 @@
 import { Menu } from "../../Components/Menu"
 import {useContext, useEffect} from 'react';
 import {ProductContext} from "../../Provider/GetProduct"
-
+import ProductCard from "../../Components/CardProduct";
 import  { Center, Flex, Input, Text } from "@chakra-ui/react";
 import { FaSearch, FaBox } from "react-icons/fa";
 
@@ -36,6 +36,11 @@ export const Home = () => {
                     </Center>
                 </Flex>
                 <Menu/>
+            </Flex>
+            <Flex width="100%" flexDirection={["column", "row", "row", "row"]} flexWrap="wrap" >
+                {product.map((data) => (
+                    <ProductCard key={data.id} dadosProducts={data}/>
+                ))}
             </Flex>
         </>
     )
