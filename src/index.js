@@ -6,6 +6,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import RegisterProvider from './Provider/RegisterProvider';
 import LoginProvider from "./Provider/LoginProvider";
+import AddProvider from './Provider/AddProvider';
+import ProductProvider from './Provider/GetProduct';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +16,11 @@ root.render(
       <ChakraProvider>
         <RegisterProvider>
           <LoginProvider>
-            <App />
+            <AddProvider>
+              <ProductProvider>
+                <App />
+              </ProductProvider>
+            </AddProvider>
           </LoginProvider>
         </RegisterProvider>
       </ChakraProvider>

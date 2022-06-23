@@ -20,9 +20,13 @@ import {GrAdd} from "react-icons/gr"
 import * as yup from "yup"
 import { useForm } from 'react-hook-form';
 import {yupResolver} from "@hookform/resolvers/yup"
+import { useContext } from 'react';
+import { AddContext } from '../../Provider/AddProvider';
+
 
 export const Menu = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const {AddProduct} = useContext(AddContext)
     const btnRef = React.useRef()
     const schema = yup.object().shape({
         name: yup.string().required("Campo Obrigatório"),
@@ -42,7 +46,7 @@ export const Menu = () => {
     } = useForm({resolver: yupResolver(schema)})
 
     const onSubmitAdd = (data) => {
-        console.log(data)
+        AddProduct(data)
     }
 
     return (
@@ -139,7 +143,7 @@ export const Menu = () => {
                         <FormControl id='purchase_data'>
                             <FormLabel>Data que Comprou</FormLabel>
                             <InputGroup>
-                                <Input type="text" placeholder='Ex: Ano/Mês/Dia' {...register("purchase_data")}/>
+                                <Input type="text" placeholder='Ex: Ano-Mês-Dia' {...register("purchase_data")}/>
                             </InputGroup>
                             <Text>{errors.purchase_data?.message}</Text>
                         </FormControl>
