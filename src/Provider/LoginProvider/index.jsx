@@ -11,9 +11,9 @@ const LoginProvider = ({children}) => {
         axios
         .post("https://api-smg.herokuapp.com/api/login/", dataLogin)
         .then((response) => {
-            localStorage.setItem("@Token:User", JSON.stringify(response.data))
+            localStorage.setItem("@Token:User", JSON.stringify(response.data.token))
 
-            history.push("/")
+            history.push("/home")
         })
         .catch((err) => console.log(err))
     }

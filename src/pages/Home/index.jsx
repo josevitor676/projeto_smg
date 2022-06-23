@@ -1,8 +1,17 @@
-import { Menu } from "../../Components/Menu";
+import { Menu } from "../../Components/Menu"
+import {useContext, useEffect} from 'react';
+import {ProductContext} from "../../Provider/GetProduct"
+
 import  { Center, Flex, Input, Text } from "@chakra-ui/react";
 import { FaSearch, FaBox } from "react-icons/fa";
 
 export const Home = () => {
+    const {product, getProducts} = useContext(ProductContext)
+
+    useEffect(()=> {
+        getProducts()
+    }, [product])
+
     return (
         <>
             <Flex mt="6px" paddingX={['4', '8']} paddingY="2" justifyContent="space-between" borderBottom="1px solid black">
