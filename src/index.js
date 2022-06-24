@@ -8,6 +8,8 @@ import RegisterProvider from './Provider/RegisterProvider';
 import LoginProvider from "./Provider/LoginProvider";
 import AddProvider from './Provider/AddProvider';
 import ProductProvider from './Provider/GetProduct';
+import ExcluirProvider from './Provider/Excluir';
+import EditProvider from './Provider/Edit';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +20,11 @@ root.render(
           <LoginProvider>
             <AddProvider>
               <ProductProvider>
-                <App />
+                <ExcluirProvider>
+                  <EditProvider>
+                    <App />
+                  </EditProvider>
+                </ExcluirProvider>
               </ProductProvider>
             </AddProvider>
           </LoginProvider>
