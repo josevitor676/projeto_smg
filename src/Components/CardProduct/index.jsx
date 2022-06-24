@@ -1,7 +1,11 @@
 import { Box, Button, ButtonGroup, Text } from "@chakra-ui/react"
-
+import { ExcluirContext } from "../../Provider/Excluir"
+import { useContext } from "react"
+import EditarModal from "../ModalEditar"
 
 const ProductCard = ({dadosProducts}) => {
+    const {ExcluirProduct} = useContext(ExcluirContext)
+    
     const {
         name,
         description, 
@@ -40,8 +44,10 @@ const ProductCard = ({dadosProducts}) => {
             <Text>{purchase_data}</Text>
 
             <ButtonGroup>
-                <Button>Editar</Button>
-                <Button>Excluir</Button>
+                <EditarModal idProduct={id}/>
+                <Button onClick={() => {
+                  ExcluirProduct(id) 
+                }}>Excluir</Button>
             </ButtonGroup>
         </Box>
     )

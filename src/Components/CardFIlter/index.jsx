@@ -1,7 +1,11 @@
 import { Box, Button, ButtonGroup, Text } from "@chakra-ui/react"
 import { BiArrowBack } from "react-icons/bi"
-
+import { ExcluirContext } from "../../Provider/Excluir"
+import { useContext } from "react"
 const ProductFiltered = ({dadosProducts, setFiltered, setInput}) => {
+
+    const {ExcluirProduct} = useContext(ExcluirContext)
+
     const {
         name,
         description, 
@@ -50,7 +54,9 @@ const ProductFiltered = ({dadosProducts, setFiltered, setInput}) => {
 
             <ButtonGroup>
                 <Button>Editar</Button>
-                <Button>Excluir</Button>
+                <Button onClick={() => {
+                    ExcluirProduct(id)
+                }}>Excluir</Button>
             </ButtonGroup>
         </Box>
     )
