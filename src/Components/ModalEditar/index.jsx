@@ -126,6 +126,7 @@ const EditarModal = ({idProduct}) => {
                 <Stack spacing={4} pt="3">
                     <Button type='submit' as="button"  colorScheme='blue' onClick={() => {
                         onSubmitEdit()
+                        onClose()
                     }} >
                     Editar
                     </Button>
