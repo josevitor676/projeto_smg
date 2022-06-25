@@ -17,6 +17,7 @@ export const Home = () => {
         getProducts()
     }, [product])
     
+    
     const showProduct = () => {
 
         const nameProduct = input.toLowerCase()
@@ -37,7 +38,9 @@ export const Home = () => {
             <Flex mt="6px" paddingX={['4', '8']} paddingY="2" justifyContent="space-between" borderBottom="1px solid black">
 
                 <Flex alignItems="center">
-                    <Text marginRight="5px" fontFamily="Kanit, sans-serif" fontSize="20px">SafeStock</Text>
+                    <Text marginRight="5px" fontFamily="Kanit, sans-serif" fontSize="20px" cursor="pointer" onClick={() => {
+                        setFiltered(false)
+                    }}>SafeStock</Text>
                     <FaBox />
                 </Flex>
                 <Flex as="form">
