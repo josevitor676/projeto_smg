@@ -47,13 +47,13 @@ const EditarModal = ({idProduct}) => {
     }
   return (
     <>
-      <Button onClick={onOpen}>Editar</Button>
+      <Button onClick={onOpen} bg="#142850" color="white" _hover={{bg: "#142850c0", transition: "ease 0.6s"}}>Editar</Button>
 
       <Modal isOpen={isOpen} onClose={onClose} size={["xs", "sm", "md", "xl"]}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Editar Produto</ModalHeader>
-          <ModalCloseButton />
+        <ModalContent bg='#DAE1E7'>
+          <ModalHeader fontFamily="Kanit, sans-serif" color="#142850" borderBottom="2px solid #142850">Editar Produto</ModalHeader>
+          <ModalCloseButton color="#142850"/>
           <ModalBody 
           w="100%"
           as="form"
@@ -61,70 +61,76 @@ const EditarModal = ({idProduct}) => {
           >
             <Box fontFamily="Kanit, sans-serif" display="flex" flexDirection="row" flexWrap='wrap'>
                 <FormControl id='name' width="230px">
-                    <FormLabel >Nome Produto</FormLabel>
+                    <FormLabel color="#142850">Nome Produto</FormLabel>
                     <InputGroup>
-                        <Input type="text" placeholder='Nome do produto' {...register("name")}/>
+                        <Input type="text" placeholder='Nome do produto' {...register("name")} borderColor="#142850" focusBorderColor='#142850' _hover={{borderColor:"#142850"}} color="#142850" _placeholder={{fontFamily: "Poppins, sans-serif", fontWeight: "bold", fontSize: "13px"}}/>
                     </InputGroup>
                     <Text>{errors.name?.message}</Text>
                 </FormControl>
 
                 <FormControl id='description' width="230px" ml={["0rem","0rem","0rem", "0.7rem"]}>
-                    <FormLabel>Descrição</FormLabel>
+                    <FormLabel color="#142850">Descrição</FormLabel>
                     <InputGroup>
-                        <Input type="text" placeholder='Descrição do produto' {...register("description")}/>
+                        <Input type="text" placeholder='Descrição do produto' {...register("description")} borderColor="#142850" focusBorderColor='#142850' _hover={{borderColor:"#142850"}} color="#142850" _placeholder={{fontFamily: "Poppins, sans-serif", fontWeight: "bold", fontSize: "13px"}}/>
                     </InputGroup>
                     <Text>{errors.description?.message}</Text>
                 </FormControl>
 
                 <FormControl id='category' width="230px">
-                    <FormLabel>Categoria</FormLabel>
+                    <FormLabel color="#142850">Categoria</FormLabel>
                     <InputGroup>
-                        <Input type="text" placeholder='Categoria do produto' {...register("category")}/>
+                        <Input type="text" placeholder='Categoria do produto' {...register("category")} borderColor="#142850" focusBorderColor='#142850' _hover={{borderColor:"#142850"}} color="#142850" _placeholder={{fontFamily: "Poppins, sans-serif", fontWeight: "bold", fontSize: "13px"}}/>
                     </InputGroup>
                     <Text>{errors.category?.message}</Text>
                 </FormControl>
 
                 <FormControl id='which_store' width="230px" ml={["0rem","0rem","0rem", "0.7rem"]}>
-                    <FormLabel>Onde Comprou?</FormLabel>
+                    <FormLabel color="#142850">Onde Comprou?</FormLabel>
                     <InputGroup>
-                        <Input type="text" placeholder='Nome da loja' {...register("which_store")}/>
+                        <Input type="text" placeholder='Nome da loja' {...register("which_store")} borderColor="#142850" focusBorderColor='#142850' _hover={{borderColor:"#142850"}} color="#142850" _placeholder={{fontFamily: "Poppins, sans-serif", fontWeight: "bold", fontSize: "13px"}}/>
                     </InputGroup>
                     <Text>{errors.which_store?.message}</Text>
                 </FormControl>
 
                 <FormControl id='price_paid' width="230px">
-                    <FormLabel>Quanto Pagou?</FormLabel>
+                    <FormLabel color="#142850">Quanto Pagou?</FormLabel>
                     <InputGroup>
-                        <Input type="number" placeholder='Preço que pagou' {...register("price_paid")}/>
+                        <Input type="number" placeholder='Preço que pagou' {...register("price_paid")} borderColor="#142850" focusBorderColor='#142850' _hover={{borderColor:"#142850"}} color="#142850" _placeholder={{fontFamily: "Poppins, sans-serif", fontWeight: "bold", fontSize: "13px"}}/>
                     </InputGroup>
                     <Text>{errors.price_paid?.message}</Text>
                 </FormControl>
 
                 <FormControl id='price_to_sell' width="230px" ml={["0rem","0rem","0rem", "0.7rem"]}>
-                    <FormLabel>Por Quanto vai Vender?</FormLabel>
+                    <FormLabel color="#142850">Por Quanto vai Vender?</FormLabel>
                     <InputGroup>
-                        <Input type="number" placeholder='Preço que vai vender' {...register("price_to_sell")}/>
+                        <Input type="number" placeholder='Preço que vai vender' {...register("price_to_sell")} borderColor="#142850" focusBorderColor='#142850' _hover={{borderColor:"#142850"}} color="#142850" _placeholder={{fontFamily: "Poppins, sans-serif", fontWeight: "bold", fontSize: "13px"}}/>
                     </InputGroup>
                     <Text>{errors.price_to_sell?.message}</Text>
                 </FormControl>
 
                 <FormControl id='quantity' width="230px">
-                    <FormLabel>Quantidade</FormLabel>
+                    <FormLabel color="#142850">Quantidade</FormLabel>
                     <InputGroup>
-                        <Input type="number" placeholder='Quantidade de produto' {...register("quantity")}/>
+                        <Input type="number" placeholder='Quantidade de produto' {...register("quantity")} borderColor="#142850" focusBorderColor='#142850' _hover={{borderColor:"#142850"}} color="#142850" _placeholder={{fontFamily: "Poppins, sans-serif", fontWeight: "bold", fontSize: "13px"}}/>
                     </InputGroup>
                     <Text>{errors.quantity?.message}</Text>
                 </FormControl>
 
                 <FormControl id='purchase_data' width="230px" ml={["0rem","0rem","0rem", "0.7rem"]}>
-                    <FormLabel>Data que Comprou</FormLabel>
+                    <FormLabel color="#142850">Data que Comprou</FormLabel>
                     <InputGroup>
-                        <Input type="text" placeholder='Ex: Ano-Mês-Dia' {...register("purchase_data")}/>
+                        <Input type="text" placeholder='Ex: Ano-Mês-Dia' {...register("purchase_data")} borderColor="#142850" focusBorderColor='#142850' _hover={{borderColor:"#142850"}} color="#142850" _placeholder={{fontFamily: "Poppins, sans-serif", fontWeight: "bold", fontSize: "13px"}}/>
                     </InputGroup>
                     <Text>{errors.purchase_data?.message}</Text>
                 </FormControl>
                 <Stack spacing={4} pt="3">
-                    <Button type='submit' as="button"  colorScheme='blue' onClick={() => {
+                    <Button 
+                    type='submit' 
+                    as="button"  
+                    bg="#142850"
+                    _hover={{bg: "#142850c0", transition: "ease 0.6s"}} 
+                    color="white"
+                    onClick={() => {
                         onSubmitEdit()
                         onClose()
                     }} >

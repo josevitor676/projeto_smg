@@ -151,7 +151,7 @@ export const Register = () => {
                         </Button>
                         </Stack>
                         <Stack pt={1}>
-                        <Text align={'center'}>
+                        <Text align={'center'} _hover={{textDecoration: "underline"}}>
                             Já tem Cadastro? <Link to="/login" color={'#142850'}>Fazer Login</Link>
                         </Text>
                         </Stack>

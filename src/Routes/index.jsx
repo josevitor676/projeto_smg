@@ -5,13 +5,14 @@ import { Register } from "../pages/Register";
 
 
 export const Routes = () => {
+    
     return (
         <Switch>
             <Route exact path="/">
-                <Register/>
+                <Register  />
             </Route>
             <Route path="/home">
-                <Home/>
+                <Home />
             </Route>
             <Route path="/login">
                 <Login />

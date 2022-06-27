@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const ExcluirContext = createContext();
 
@@ -13,7 +14,9 @@ const ExcluirProvider = ({children}) => {
                 Authorization: `Token ${token}`
             }
         })
-        .then((response) => console.log("Produto Excluido"))
+        .then((response) => {
+            toast("Produto Excluido!!")
+        })
         .catch((err) => console.log(err))
     }
 

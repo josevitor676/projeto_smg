@@ -41,8 +41,8 @@ const ProductFiltered = ({dadosProducts, setFiltered, setInput}) => {
         ml="20px"
         p="5px"
         >
-            <Button w="20px" h="20px" onClick={backProduct}>
-                <BiArrowBack />
+            <Button w="20px" h="20px" onClick={backProduct} bg="#142850" _hover={{bg: "#142850c0", transition: "ease 0.6s"}}>
+                <BiArrowBack  style={{color: 'white'}}/>
             </Button>
             <Text w="300px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Nome do Produto: </Text>{name}</Text>
             <Text w="300px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Descrição: </Text>{description}</Text>
@@ -55,7 +55,11 @@ const ProductFiltered = ({dadosProducts, setFiltered, setInput}) => {
 
             <ButtonGroup>
                 <EditarModal idProduct={id}/>
-                <Button onClick={() => {
+                <Button 
+                bg="#142850"
+                _hover={{bg: "#142850c0", transition: "ease 0.6s"}}
+                color="white"
+                onClick={() => {
                     ExcluirProduct(id)
                     setFiltered(false)
                 }}>Excluir</Button>

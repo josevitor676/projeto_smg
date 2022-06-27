@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const AddContext = createContext()
 
@@ -13,7 +14,9 @@ const AddProvider = ({children}) => {
                 Authorization: `Token ${token}`
             }
         })
-        .then((response) => console.log("foi"))
+        .then((response) => {
+            toast("Produto Adicionado")
+        })
         .catch((err) => console.log(err))
     }
 

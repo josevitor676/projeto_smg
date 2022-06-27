@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const EditContext = createContext()
 
@@ -12,7 +13,9 @@ const EditProvider = ({children}) => {
                 Authorization: `Token ${token}`
             }
         })
-        .then((response) => console.log('Produto Editado com sucesso'))
+        .then((response) => {
+            toast("Produto Editado")
+        })
         .catch((err) => console.log(err))
     }
 

@@ -35,12 +35,14 @@ export const Login = () => {
         email: yup.string().required("Email Obrigatório").email("Email Invalido"),
         password: yup.string().min(8, "Minimo de 8 digitos").matches(/(?=.*[A-Z])/, "Sua senha deve conter ao menos uma letra maiúscula").required("Campo Obrigatório"),
     })
+
     const {
         register,
         handleSubmit,
         formState: {errors}
     } = useForm({resolver:yupResolver(schema)})
-
+    
+    
     const onSubmitRegister = (data) => {
         sendLogin(data)
     }
@@ -114,8 +116,8 @@ export const Login = () => {
                         </Button>
                         </Stack>
                         <Stack pt={6}>
-                        <Text align={'center'}>
-                            Ainda não tem um Cadastro? <Link to="/register" color={'#142850'}>Fazer cadastro</Link>
+                        <Text align={'center'} _hover={{textDecoration: "underline"}}>
+                            Ainda não tem um Cadastro? <Link to="/" color={'#142850'}>Fazer cadastro</Link>
                         </Text>
                         </Stack>
                     </Stack>
