@@ -24,10 +24,12 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { LoginContext } from '../../Provider/LoginProvider';
+import { Redirect } from "react-router-dom";
 
 
 
-export const Login = () => {
+
+export const Login = ({authenticated, setAuthenticated}) => {
     const {sendLogin} = useContext(LoginContext);
 
     const [showPassword, setShowPassword] = useState(false);
@@ -45,6 +47,12 @@ export const Login = () => {
     
     const onSubmitRegister = (data) => {
         sendLogin(data)
+        setAuthenticated(true);
+
+    }
+
+    if (authenticated) {
+        return <Redirect to="/home"/>
     }
     return (
         <Flex flexDirection={['column', 'column', 'row']} bg="#142850">

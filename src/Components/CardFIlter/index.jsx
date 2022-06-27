@@ -23,7 +23,6 @@ const ProductFiltered = ({dadosProducts, setFiltered, setInput}) => {
 
     const backProduct = () => {
         setFiltered(false)
-        setInput("")
     }
 
     return (
