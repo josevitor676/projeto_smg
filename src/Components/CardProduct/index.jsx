@@ -25,29 +25,43 @@ const ProductCard = ({dadosProducts}) => {
         id={id} 
         border="1px solid black" 
         borderRadius="5px" 
-        minW="auto"
+        w={["300px"]}
         minH="350px"
         display="flex"
         flexDirection="column"
         justifyContent="space-between"
         mt="20px"
-        ml="20px"
+        ml={["10px", "10px","20px"]}
         p="5px"
         >
-            <Text w="300px" ><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Nome do Produto: </Text>{name}</Text>
-            <Text w="300px" fontSize="14px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Descrição: </Text>{description}</Text>
-            <Text fontSize="14px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Categoria: </Text>{category}</Text>
-            <Text fontSize="14px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Onde Comprou: </Text>{which_store}</Text>
-            <Text fontSize="14px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Preço que pagou: </Text>R$ {price_paid.toFixed(2)}</Text>
-            <Text fontSize="14px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Preço que vai vender: </Text>R$ {price_to_sell.toFixed(2)}</Text>
-            <Text fontSize="14px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Quantidade: </Text>{quantity} Unidades</Text>
-            <Text fontSize="14px" mb="5px"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Data que comprou: </Text>{purchase_data}</Text>
+            <Text w="290px" fontSize="14px" fontFamily="Poppins, sans-serif"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Nome do Produto: </Text>{name}</Text>
 
-            <ButtonGroup>
+            <Text w="290px" fontSize="14px" fontFamily="Poppins, sans-serif"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Descrição: </Text>{description}</Text>
+
+            <Text fontSize="14px" fontFamily="Poppins, sans-serif"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Categoria: </Text>{category}</Text>
+
+            <Text fontSize="14px" fontFamily="Poppins, sans-serif"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Onde Comprou: </Text>{which_store}</Text>
+
+            <Text fontSize="14px" fontFamily="Poppins, sans-serif"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Preço que pagou: </Text>R$ {price_paid.toFixed(2)}</Text>
+
+            <Text fontSize="14px" fontFamily="Poppins, sans-serif"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Preço que vai vender: </Text>R$ {price_to_sell.toFixed(2)}</Text>
+
+            <Text fontSize="14px" fontFamily="Poppins, sans-serif"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Quantidade: </Text>{quantity} Unidades</Text>
+
+            <Text fontSize="14px" mb="5px" fontFamily="Poppins, sans-serif"><Text as="span" fontSize="16px" fontFamily="Kanit, sans-serif">Data que comprou: </Text>{purchase_data}</Text>
+
+            <ButtonGroup fontFamily="Kanit, sans-serif">
                 <EditarModal idProduct={id}/>
-                <Button onClick={() => {
+                <Button 
+                onClick={() => {
                   ExcluirProduct(id) 
-                }}>Excluir</Button>
+                }}
+                bg="#142850"
+                _hover={{bg: "#142850c0", transition: "ease 0.6s"}}
+                color="white"
+                >
+                    Excluir
+                </Button>
             </ButtonGroup>
         </Box>
     )

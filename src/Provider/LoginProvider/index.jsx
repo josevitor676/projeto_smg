@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const LoginContext = createContext();
 
@@ -12,7 +13,7 @@ const LoginProvider = ({children}) => {
         .post("https://api-smg.herokuapp.com/api/login/", dataLogin)
         .then((response) => {
             localStorage.setItem("@Token:User", JSON.stringify(response.data.token))
-
+            toast("Login Feito com Sucesso!")
             history.push("/home")
         })
         .catch((err) => console.log(err))
