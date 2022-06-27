@@ -7,8 +7,10 @@ import { FaSearch, FaBox } from "react-icons/fa";
 import ProductFiltered from "../../Components/CardFIlter";
 import {GiArchiveRegister} from "react-icons/gi"
 import { toast } from "react-toastify";
+import { Redirect } from "react-router-dom";
 
-export const Home = () => {
+
+export const Home = ({authenticated}) => {
     const {product, getProducts} = useContext(ProductContext)
     const [ input, setInput ] = useState("");
     const [filteredProduct, setFilteredProduct] = useState([]);
@@ -35,6 +37,9 @@ export const Home = () => {
         setFilteredProduct(filtered)
     }
     
+    if (!authenticated) {
+        return <Redirect to="/login"/>
+    }
 
     return (
         <Flex  bg="#DAE1E7" flexDirection="column" h="100vh">

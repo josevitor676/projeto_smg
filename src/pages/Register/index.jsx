@@ -12,6 +12,7 @@ import {
     Image,
     InputLeftElement
 } from '@chakra-ui/react';
+import { Redirect } from "react-router-dom";
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import estoqueRegister from "../../assets/estoquePintado.png"
@@ -27,7 +28,7 @@ import { RegisterContext } from '../../Provider/RegisterProvider';
 
 
 
-export const Register = () => {
+export const Register = ({authenticated}) => {
     const {sendRegister} = useContext(RegisterContext)
     const [showPassword, setShowPassword] = useState(false);
     const schema = yup.object().shape({
@@ -47,6 +48,11 @@ export const Register = () => {
     const onSubmitRegister = (data) => {
         sendRegister(data)
     }
+
+    if (authenticated) {
+        return <Redirect to="/home"/>
+    }
+
     return (
         <Flex flexDirection={['column', 'column', 'row']} bg="#142850">
             <Flex
