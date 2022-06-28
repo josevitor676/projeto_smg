@@ -2,26 +2,24 @@ import { Menu } from "../../Components/Menu"
 import {useContext, useEffect, useState} from 'react';
 import {ProductContext} from "../../Provider/GetProduct"
 import ProductCard from "../../Components/CardProduct";
-import  { Center, Flex, Input, Text, Button } from "@chakra-ui/react";
+import  {Flex, Input, Text, Button } from "@chakra-ui/react";
 import { FaSearch, FaBox } from "react-icons/fa";
 import ProductFiltered from "../../Components/CardFIlter";
 import {GiArchiveRegister} from "react-icons/gi"
 import { toast } from "react-toastify";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-
-export const Home = ({authenticated}) => {
+export const Home = () => {
     const {product, getProducts} = useContext(ProductContext)
     const [ input, setInput ] = useState("");
     const [filteredProduct, setFilteredProduct] = useState([]);
     const [ filtered, setFiltered ] = useState(false);
-
+    const history = useHistory();
     
     useEffect(()=> {
         getProducts()
     }, [product])
-    
-    
+
     const showProduct = () => {
 
         const nameProduct = input.toLowerCase()
@@ -37,10 +35,6 @@ export const Home = ({authenticated}) => {
         setFilteredProduct(filtered)
     }
     
-    if (!authenticated) {
-        return <Redirect to="/login"/>
-    }
-
     return (
         <Flex  bg="#DAE1E7" flexDirection="column" h="100vh">
             <Flex 
@@ -84,6 +78,19 @@ export const Home = ({authenticated}) => {
                     </Button>
                 </Flex>
                 <Menu/>
+                <Button 
+                colorScheme="red"
+                borderRadius="5px"
+                mb={["10px", '0px']}
+                w="50px"
+                h={["30px"]}
+                fontSize="l"
+                onClick={() => {
+                    
+                    history.push("/login")
+                    localStorage.clear()
+                }}
+                >Sair</Button>
             </Flex>
             {product.length === 0 ? 
                 <Flex justifyContent="center" alignItems="center" mt={["80px" ,"130px"]} flexDirection="column">

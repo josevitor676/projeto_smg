@@ -6,7 +6,6 @@ export const ProductContext = createContext()
 const ProductProvider = ({children}) => {
     const [product, setProduct] = useState([])
     const token = JSON.parse(localStorage.getItem("@Token:User")) || ""
-
     const getProducts = () => {
         axios.get("https://api-smg.herokuapp.com/api/product/",{
             headers: {
@@ -14,6 +13,7 @@ const ProductProvider = ({children}) => {
             }
         })
         .then((response) => {
+            
             setProduct(response.data)
         })
         .catch((err) => console.log(err))
