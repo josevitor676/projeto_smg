@@ -28,7 +28,7 @@ import { RegisterContext } from '../../Provider/RegisterProvider';
 
 
 
-export const Register = ({authenticated}) => {
+export const Register = () => {
     const {sendRegister} = useContext(RegisterContext)
     const [showPassword, setShowPassword] = useState(false);
     const schema = yup.object().shape({
@@ -49,9 +49,9 @@ export const Register = ({authenticated}) => {
         sendRegister(data)
     }
 
-    if (authenticated) {
+   /*  if (authenticated) {
         return <Redirect to="/home"/>
-    }
+    } */
 
     return (
         <Flex flexDirection={['column', 'column', 'row']} bg="#142850">

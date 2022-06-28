@@ -12,9 +12,9 @@ const LoginProvider = ({children}) => {
         axios
         .post("https://api-smg.herokuapp.com/api/login/", dataLogin)
         .then((response) => {
+            history.push("/home")
             localStorage.setItem("@Token:User", JSON.stringify(response.data.token))
             toast("Login Feito com Sucesso!")
-            history.push("/home")
         })
         .catch((err) => console.log(err))
     }

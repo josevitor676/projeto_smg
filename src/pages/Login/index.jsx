@@ -29,7 +29,7 @@ import { Redirect } from "react-router-dom";
 
 
 
-export const Login = ({authenticated, setAuthenticated}) => {
+export const Login = () => {
     const {sendLogin} = useContext(LoginContext);
 
     const [showPassword, setShowPassword] = useState(false);
@@ -47,13 +47,11 @@ export const Login = ({authenticated, setAuthenticated}) => {
     
     const onSubmitRegister = (data) => {
         sendLogin(data)
-        setAuthenticated(true);
-
     }
 
-    if (authenticated) {
+    /* if (authenticated) {
         return <Redirect to="/home"/>
-    }
+    } */
     return (
         <Flex flexDirection={['column', 'column', 'row']} bg="#142850">
             <Flex flex="1" justifyContent="center" alignItems="center">
