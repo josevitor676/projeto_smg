@@ -14,6 +14,16 @@ export const Home = () => {
     const [ input, setInput ] = useState("");
     const [filteredProduct, setFilteredProduct] = useState([]);
     const [ filtered, setFiltered ] = useState(false);
+    
+    const [itensPerPage, setItensPerPage] = useState(3);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const pages = Math.ceil(product.length / itensPerPage);
+    const startIndex = currentPage * itensPerPage;
+    const endIndex = startIndex + itensPerPage;
+
+    const currentProduct = product.slice(startIndex, endIndex);
+
     const history = useHistory();
     
     useEffect(()=> {
@@ -115,12 +125,18 @@ export const Home = () => {
                             <ProductFiltered key={data.id} dadosProducts={data} setFiltered={setFiltered} setInput={setInput} />
                         ))
                         :
-                        product.map((data) => (
+                        currentProduct.map((data) => (
                         <ProductCard key={data.id} dadosProducts={data}/>
                         ))
                     }
+
                 </Flex>
             }
+            <Flex padding="4px" margin="2px" marginTop="20px">
+                {Array.from(Array(pages), (item, index) => {
+                    return <Button h="17px" w="7px" marginLeft="12px" bg="#142850" color="white" _hover={{bg: "#142850c0"}} value={index} onClick={(e) => setCurrentPage(Number(e.target.value))}>{index + 1}</Button>
+                })}
+            </Flex>
             
         </Flex>
     )
