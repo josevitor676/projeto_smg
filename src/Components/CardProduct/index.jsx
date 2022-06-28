@@ -25,7 +25,7 @@ const ProductCard = ({dadosProducts}) => {
         id={id} 
         border="1px solid black" 
         borderRadius="5px" 
-        w={["300px"]}
+        w={["290px"]}
         minH="350px"
         display="flex"
         flexDirection="column"
